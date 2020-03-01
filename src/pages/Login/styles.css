@@ -1,0 +1,5 @@
+input[type='password'] {
+    background-image: url(../../assets/icon-password.ico);
+    background-position: 4px 300px;
+    background-repeat: no-repeat;
+}
