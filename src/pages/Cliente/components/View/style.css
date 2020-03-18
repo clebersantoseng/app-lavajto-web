@@ -1,0 +1,16 @@
+table {
+  box-shadow: 1px 2px 8px #888888;
+  border-radius: 10px;
+}
+
+
+  @media only screen and (max-width: 450px) {
+    .hide {
+        display: none;
+    }
+
+    .table {
+      font-size: 14px;
+      box-shadow: none;
+    }
+  }

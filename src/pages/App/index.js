@@ -3,11 +3,11 @@ import Dimensions from "react-dimensions";
 import MapGL from "react-map-gl";
 import PropTypes from "prop-types";
 import debounce from "lodash/debounce";
-import api from "../../services/api";
 import { withRouter } from "react-router-dom";
 import { logout } from "../../services/auth";
 import Button from "./components/Button";
 import { Container, ButtonContainer } from "./styles";
+import Menu from "../Cliente/components/Menu";
 
 import Sair from "../../assets/exit.ico";
 
@@ -69,7 +69,7 @@ class Map extends Component {
     return (
       <ButtonContainer>
         <Button color="#222" onClick={this.handleLogout}>
-          <i className="fa fa-times"><img src={Sair} alt="Sair"></img></i> 
+          <img src={Sair} alt="Sair"></img> 
         </Button>
       </ButtonContainer>
     );
@@ -79,7 +79,9 @@ class Map extends Component {
     const { containerWidth: width, containerHeight: height } = this.props;
     const { properties } = this.state;
     return (
+    
     <Fragment>
+      <Menu/>
       <MapGL
         width={width}
         height={height}

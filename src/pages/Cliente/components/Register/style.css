@@ -1,0 +1,16 @@
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #C7D1D9;
+}
+
+.modal-body {
+    background-color: #C7D1D9;
+}
+
+@media only screen and (min-width: 1200px) {
+    .modal-desktop {
+        
+        
+    }
+  }

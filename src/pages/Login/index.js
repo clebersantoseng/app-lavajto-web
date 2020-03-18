@@ -3,10 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 
 
 import "./styles.css";
-
 import Logo from "../../assets/lava-jato.png";
-
-
 import api from "../../services/api";
 import { login } from "../../services/auth";
  
@@ -15,19 +12,19 @@ import { Form, Container } from "./styles";
 
 class Login extends Component {
   state = {
-    username: "",
+    uid: "",
     password: "",
     error: ""
   }
 
   handleSignIn = async e => {
     e.preventDefault();
-    const { username, password } = this.state;
-    if (!username || !password) {
+    const { uid, password } = this.state;
+    if ( !uid || !password) {
       this.setState({ error: "Digite seu Usuário e Senha !"});
     } else {
       try {
-        const response = await api.post("/sessions", { username, password });
+        const response = await api.post("/sessions", { uid, password });
         login(response.data.token);
         this.props.history.push("/app")
         } catch (err) {
@@ -58,7 +55,7 @@ class Login extends Component {
                 type="text" 
                 placeholder="Usuário :"
                 className="moveEffect"
-                onChange={e => this.setState({ username: e.target.value })}
+                onChange={e => this.setState({ uid: e.target.value })}
               />
             </div>
 

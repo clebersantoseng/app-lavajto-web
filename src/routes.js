@@ -5,6 +5,7 @@ import { isAuthenticated } from "./services/auth";
 import Cadastrar from "./pages/Cadastrar";
 import Login from "./pages/Login";
 import App from "./pages/App";
+import Cliente from "./pages/Cliente";
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -25,6 +26,7 @@ const Routes = () => (
     <Switch>
       <Route exact path="/" component={Login} />
       <Route path="/cadastrar" component={Cadastrar} />
+      <Route path="/cliente" component={Cliente} />
       
       <PrivateRoute path="/app" component={App} />
       <Route path="*" component={() => <h1>Erro 404: Página não encontrada !</h1>} />
