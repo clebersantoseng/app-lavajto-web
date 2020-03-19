@@ -5,7 +5,6 @@ import MenuDropdown from "./components/Menu";
 import Cliente from "./components/View";
 import Register from "./components/Register";
 import Search from "./components/Search";
-import Pages from "./components/Search";
 import "./style.css";
 import { Container } from "react-bootstrap";
 
@@ -22,7 +21,6 @@ class Clientes extends Component {
           <hr></hr>
           <Cliente  />
           <hr></hr>
-          <Pages />
           </Container>
         </div>
     );    
