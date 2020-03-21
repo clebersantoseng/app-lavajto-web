@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Button, Modal, ProgressBar } from "react-bootstrap";
 //import { Link } from "react-router-dom";
 //import api from "../../../../services/api";
-
-import "./style.css";
 import Cadastrar from "../Formulario";
 
-function Register() {
+import "./style.css";
+
+
+function Register({ onSubmit }) {
 
 
   const [show, setShow] = useState(false);
@@ -14,9 +15,9 @@ function Register() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true); 
 
-  const handleSignUp = () => map(Cadastrar.handleSignUp)
-  
 
+
+  
   return (
     <>
       <Button variant="success" onClick={handleShow}>
@@ -30,15 +31,13 @@ function Register() {
         <Modal.Body className="modal-body">
           
           <Cadastrar />
+
           <ProgressBar animated now={7} variant="success" />
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="outline-danger" onClick={handleClose}>
             <i className="fas fa-minus-circle"> Cancelar</i>
-          </Button>
-          <Button variant="success" onClick={handleSignUp}>
-            <i className="fas fa-save"> Salvar</i>
           </Button>
         </Modal.Footer>
       </Modal>

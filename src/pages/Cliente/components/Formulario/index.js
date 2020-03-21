@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Form, InputGroup, Button } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 import api from  "../../../../services/api";
 
+import "./style.css";
+
 class Cadastrar extends Component {
+
+ 
 
   state = {
     name: "",
@@ -22,14 +27,16 @@ class Cadastrar extends Component {
     } else {
       try {
         await api.post("/clientes", { name, cpf, tel, whatsapp, address });
-        this.setState({ error: "Cadastrado com sucesso!" });
-        setTimeout(() => { this.props.history.push("/cliente");}, 3000);
+        this.setState({ error: alert("Cliente cadastrado com sucesso!") });
+        setTimeout(() => { document.location.reload(true); }, 1000);
+
       } catch (err) {
         console.log(err);
         this.setState({ error: "Ocorreu um erro ao cadastrar seus dados." });
       }
     }
   };
+
 
   render() {
     return(
@@ -62,6 +69,7 @@ class Cadastrar extends Component {
                 placeholder="Cpf"
                 aria-describedby="inputGroupPrepend"
                 required
+                onChange={e => this.setState({ cpf: e.target.value })}
               />
             </InputGroup>
           </Form.Group>
@@ -76,6 +84,7 @@ class Cadastrar extends Component {
                 placeholder="Telefone"
                 aria-describedby="inputGroupPrepend"
                 required
+                onChange={e => this.setState({ tel: e.target.value })}
               />
             </InputGroup>
           </Form.Group>
@@ -90,6 +99,7 @@ class Cadastrar extends Component {
                 placeholder="Whatsapp"
                 aria-describedby="inputGroupPrepend"
                 required
+                onChange={e => this.setState({ whatsapp: e.target.value })}
               />
             </InputGroup>
           </Form.Group>
@@ -104,8 +114,13 @@ class Cadastrar extends Component {
                 placeholder="Endereço"
                 aria-describedby="inputGroupPrepend"
                 required
+                onChange={e => this.setState({ address: e.target.value })}
                 
               />
+            </InputGroup>
+
+            <InputGroup>
+              <Button onClick={this.handleSignUp} variant="success" className="button-register"> Cadastrar</Button>
             </InputGroup>
           </Form.Group>
 
@@ -115,4 +130,4 @@ class Cadastrar extends Component {
     
 }
 
-export default Cadastrar;
+export default withRouter(Cadastrar);
