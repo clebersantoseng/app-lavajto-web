@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, InputGroup, Button} from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Button} from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import { logout } from "../../../../services/auth";
 import "./style.css";
