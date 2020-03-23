@@ -8,8 +8,6 @@ import "./style.css";
 
 class Cadastrar extends Component {
 
- 
-
   state = {
     name: "",
     cpf: "",

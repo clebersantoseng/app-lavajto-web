@@ -1,5 +1,7 @@
 import React, { useState, useEffect }from "react";
+import { Link } from "react-router-dom";
 import api from "../../../../services/api";
+
 import "./style.css";
 
 function Cliente() {
@@ -35,7 +37,7 @@ return (
                     <td>{pessoa.name}</td>
                     <td className="hide">{pessoa.cpf}</td>
                     <td><a href={`https://api.whatsapp.com/send?phone=55${pessoa.whatsapp};`} target='_blank' without rel="noopener noreferrer" >{pessoa.whatsapp}</a></td>
-                    <td><i href="#" className='fas fa-eye' alt="Visualizar"></i></td>
+                    <td><Link to={`/viewCliente/${pessoa.id}`}><i href="#" className='fas fa-eye' alt="Visualizar"></i></Link></td>
                 </tr>
                 ))}      
             </tbody>
