@@ -11,12 +11,7 @@ import "./style.css";
 class viewCliente extends Component {
 
     state = {
-        id: "",
-        name: "",
-        cpf: "",
-        tel: "",
-        whatsapp: "",
-        address: ""
+        cliente: {}
     }
 
     async componentDidMount() {
@@ -25,11 +20,11 @@ class viewCliente extends Component {
         const response = await api.get(`/clientes/${id}`);
         console.log(response)
 
-        this.setState({ response });
+        this.setState({ cliente: response.data });
     }
 
     render(){   
-        //const  cliente  = this.state;
+        const  { cliente }  = this.state;
 
         return (
             
@@ -42,22 +37,15 @@ class viewCliente extends Component {
                 </div>
                 
                 <hr></hr>
-                
-                {/* {cliente.name}
-                {cliente.id}
-                 {cliente.cpf}
-                {cliente.tel}
-                {cliente.whatsapp}
-                {cliente.address} */}
-
+             
                 <ListGroup>
                     <ListGroup.Item variant="info">Dados Cliente</ListGroup.Item>
-                    <ListGroup.Item variant="secondary"><i className="fas fa-user" /> Nome: Cleber Santos Fernandes</ListGroup.Item>
-                    <ListGroup.Item variant="secondary"><i className="fas fa-hashtag" /> ID: 20200301</ListGroup.Item>
-                    <ListGroup.Item variant="secondary"><i className="fas fa-id-card"></i> CPF: 045.637.051-01</ListGroup.Item>
-                    <ListGroup.Item variant="secondary"><i className="fas fa-phone"></i> Telefone: 62 99612-1210</ListGroup.Item>
-                    <ListGroup.Item variant="secondary"><i className="fas fa-paper-plane"></i> Whatsapp: 62 99612-1210</ListGroup.Item>
-                    <ListGroup.Item variant="secondary"><i className="fas fa-map-pin"></i> Endereço: Rua Antônio Miguel de Castro, N183 - Bairro Michelle</ListGroup.Item>
+                    <ListGroup.Item variant="secondary"><i className="fas fa-user" /> <b>Nome:</b> {cliente.name}</ListGroup.Item>
+                    <ListGroup.Item variant="secondary"><i className="fas fa-id-badge" /> <b>ID:</b> {cliente.id}</ListGroup.Item>
+                    <ListGroup.Item variant="secondary"><i className="fas fa-id-card"></i> <b>CPF:</b> {cliente.cpf}</ListGroup.Item>
+                    <ListGroup.Item variant="secondary"><i className="fas fa-phone"></i> <b>Telefone:</b> {cliente.tel}</ListGroup.Item>
+                    <ListGroup.Item variant="secondary"><i className="fab fa-whatsapp"></i> <b>Whatsapp:</b> {cliente.whatsapp}</ListGroup.Item>
+                    <ListGroup.Item variant="secondary"><i className="fas fa-map-pin"></i> <b>Endereço:</b> {cliente.address}</ListGroup.Item>
                 </ListGroup>
             </Container>
             </div>

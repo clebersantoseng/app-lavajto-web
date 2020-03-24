@@ -90,7 +90,7 @@ class Cadastrar extends Component {
           <Form.Group>
             <InputGroup>
               <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend"><i className="fas fa-paper-plane"></i></InputGroup.Text>
+                <InputGroup.Text id="inputGroupPrepend"><i className="fab fa-whatsapp"></i></InputGroup.Text>
               </InputGroup.Prepend>
               <Form.Control
                 type="text"

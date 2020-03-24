@@ -27,11 +27,11 @@ const Routes = () => (
     <Switch>
       <Route exact path="/" component={Login} />
       <Route path="/login" component={Login} />
-      <Route path="/cadastrar" component={Cadastrar} />
-      <Route path="/cliente" component={Cliente} />
-      <Route path="/viewCliente/:id" component={viewCliente} />
+      <Route path="/cadastrar" component={Cadastrar} />    
       
       <PrivateRoute path="/app" component={App} />
+      <PrivateRoute path="/cliente" component={Cliente} />
+      <PrivateRoute  path="/viewCliente/:id" component={viewCliente} />
       <Route path="*" component={() => <h1>Erro 404: Página não encontrada !</h1>} />
     </Switch>
   </BrowserRouter>

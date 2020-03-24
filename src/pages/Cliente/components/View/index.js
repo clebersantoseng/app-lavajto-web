@@ -11,6 +11,7 @@ function Cliente() {
       async function loadClientes() {
         const response = await api.get('/clientes');
   
+        console.log(response.data)
         setClientes(response.data);
       }
   
@@ -19,7 +20,8 @@ function Cliente() {
 
 return (
 
-    <div className="container" id="table">
+    <div className="container-view">
+        <div className="container" id="table">
         <div className="" responsive="sm">          
             <table className="table responsive table-hover">
             <thead>
@@ -43,7 +45,15 @@ return (
             </tbody>
             </table>
         </div>
+        </div>
+        <div className="rodape">
+            <hr></hr>
+            <p>Copyright©2020, CsCódigos Company. </p>
+            <p>Todos os direitos reservados.</p>
+            <p><i className="fab fa-whatsapp"> <a href="https://api.whatsapp.com/send?phone=5562996121210">+5562 99612-1210</a></i></p>
+        </div>
     </div>
+    
 
   );
 }
